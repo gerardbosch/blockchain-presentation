@@ -105,7 +105,7 @@ Gerard Bosch (gerard.bosch@gmail.com)
     \itemsep=1.35ex
         \item A \alert{distributed cryptographic ledger} shared amongst all nodes participating in a network, over which every transaction is recorded.
         \item<5-> Blockchain serves as the \alert{underlying} technology of several \st{cryptocurrencies} such as Bitcoin.
-        \item<7-> The concept and its implementation was created in 2009 and announced in a 9 pages paper writen by Satoshi Nakamoto.
+        \item<7-> The concept and its implementation was created in 2008/2009 and announced in a 9 pages paper writen by Satoshi Nakamoto.
     \end{itemize}
 
     \only<2> {
@@ -152,12 +152,40 @@ Gerard Bosch (gerard.bosch@gmail.com)
     \vspace{4ex}
 
     \only<1-> {
-        \centering \Large Now we know, but\ldots how does it look like?
+        \centering {\LARGE Now we know, but\ldots how does it look like?}
     }
 
     \only<2-> {
         \vspace{4ex}
         \includegraphics[scale=0.26]{../img/block-chain.png}
+    }
+
+    \end{overlayarea}
+\end{frame}
+%--------------------------------End-----------------------------------
+
+
+%--------------------------------Frame---------------------------------
+\begin{frame}
+    \frametitle{What is a Blockchain?}
+
+    \begin{overlayarea}{\textwidth}{\textheight}
+
+    \vspace{4ex}
+
+    \only<1-> {
+        \centering {\huge Cool! But why?}
+    }
+
+    \only<2-> {
+        \vspace{4ex}
+        \begin{itemize}
+            \item \alert{Supress} the trusted third-party (i.e. Financial institutions and Banks).
+            \item \alert{Empower} people.
+            \item Almost \alert{immediate} transactions.
+            \item  % TODO
+        \end{itemize}
+
     }
 
     \end{overlayarea}
@@ -240,8 +268,8 @@ Gerard Bosch (gerard.bosch@gmail.com)
     \begin{enumerate}\itemsep=4ex
         \item Clients creates and \alert{signs} transactions (TX) using its private key, then they \st{broadcasts} TX to the network.
         \item Network nodes (miners) receives transactions and stores them in the so called \st{mempool}.
-        \item Miners prioritize transactions based on fees and validate it.
-        \item Once successfully validated a block is appended to the block chain.
+        \item Miners \alert{prioritize} transactions based on fees, \alert{validate} and \alert{put} them in a block.
+        \item Once successfully created and \alert{verified} by the network, the block is finally \alert{appended} to the chain.
     \end{enumerate}
 
 \end{frame}
@@ -268,8 +296,8 @@ Gerard Bosch (gerard.bosch@gmail.com)
 
     \only<1-2> {
     \vspace{2ex}
-    \begin{exampleblock}{Block mining}
-        Participants of a Blockchain network put some \alert{resources} to validate transactions by \alert{solving} the so called \st{cryptographic puzzles}.
+    \begin{exampleblock}{Block creation (mining)}
+        Participants of a Blockchain network put computational \alert{resources} to validate transactions by \alert{solving} the so called \st{cryptographic puzzles}.
     \end{exampleblock}
     }
 
@@ -307,26 +335,40 @@ Gerard Bosch (gerard.bosch@gmail.com)
 %--------------------------------End-----------------------------------
 
 
+\subsection{Proof of Stake}
 %--------------------------------Frame---------------------------------
 \begin{frame}
     \frametitle{Proof of Stake}
+    \begin{overlayarea}{\textwidth}{0.85\textheight}
 
-    Given the aforementioned problems that PoW presents, the new model Proof of Stake was developed.
-
-    \begin{itemize}
-        \item In PoS, the resource the miner puts is an amount of currency it holds: the stake (a kind of deposit).
-        \item The next block creator will be chosen randomly.
-        \item % If the miner behaves dishonestly they lose the stake.
-    \end{itemize}
-
-    \begin{exampleblock}{Pros}
+    \only<1-2> {
+        Given the aforementioned problems that PoW presents, the new Proof of Stake (PoS) model was developed.
+        
+        \begin{exampleblock}{Block creation (forging)}
+            Participants of the network \alert{stake} an amount of currency they hold (a kind of deposit) to be able to forge and \alert{send} a block to the network.
+        \end{exampleblock}
+    }
+    
+    \only<2> {
         \begin{itemize}
-            \item Executing an attack would be much more expensive: Purchasing more than half of the coins is likely more costly than acquiring 51\% of PoS hashing power.
-            \item
-            \item
+            \item The next block creator (called forger) will be chosen randomly following certain criteria.
+            \item The forger \st{verifies} transactions, \st{forges} a new block and \st{sends} it to the network.
+            \item Such as in PoW, new block is added to the chain and forger receives transaction fees (and its stake back).
+            \item If the forger acts \alert{dishonestly}, the rest of nodes will discard the block and forger will \alert{lose} the \st{stake}.
         \end{itemize}
-    \end{exampleblock}
+    }
 
+    \only<3> {
+        \begin{exampleblock}{Pros}
+            \begin{itemize}
+                \item Executing an attack would be much more expensive: Purchasing more than half of the coins is likely more costly than acquiring 51\% of PoS hashing power.
+                \item
+                \item % TODO
+            \end{itemize}
+        \end{exampleblock}
+    }
+
+\end{overlayarea}
 \end{frame}
 %--------------------------------End-----------------------------------
 
