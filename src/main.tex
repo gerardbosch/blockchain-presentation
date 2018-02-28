@@ -56,7 +56,9 @@
 \date{\today}
 
 % \AtBeginSection[]{\frame[shrink]{\frametitle{Outline}\tableofcontents[currentsection]}} %posar [*] per aplicar-ho a \section*
-\AtBeginSection[]{\frame{\frametitle{Outline}\begin{multicols}{2} \tableofcontents[currentsection] \end{multicols}}}    % 2 columns toc
+\AtBeginSection[]{\frame{\frametitle{Outline}\begin{multicols}{2}
+                                                 \tableofcontents[currentsection]
+\end{multicols}}}    % 2 columns toc
 
 % 2 columns table of contents !package multicol
 % \begin{frame}
@@ -71,415 +73,426 @@
 \begin{document}
 
 
-%%%%%%%%%%%%%%%%%%%%% Custom title %%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\begin{center}
-\vspace{-4mm}\begin{center}\includegraphics[scale=0.15]{../img/gft.jpg}\end{center}
-
-%\rule{\linewidth}{1.5pt} \\[3mm]
-\vspace{1cm}
-{\huge \bfseries \textcolor{MidnightBlue!100!bg}{ An introduction to\\[3mm] \textcolor{DarkBlue}{Blockchain} technology }} \\[3mm]
-%\rule{\linewidth}{1.5pt} \\[3mm]
-
-\vspace{1 cm}
-Gerard Bosch (gerard.bosch@gmail.com)
-
-\vspace{0.8cm}\today
-\end{center}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%% End title %%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-%\maketitle
-\frame[shrink]{\frametitle{Outline}\tableofcontents[hideallsubsections]}
-
-
-\section{Preliminary concepts}
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{What is a Blockchain?}
-
-    \begin{overlayarea}{\textwidth}{\textheight}
-
-    \vspace{3ex}
-
-    \begin{itemize}
-    \itemsep=1.35ex
-        \item A \alert{distributed cryptographic ledger} shared amongst all nodes participating in a network, over which every transaction is recorded.
-        \item<5-> Blockchain serves as the \alert{underlying} technology of several \st{cryptocurrencies} such as Bitcoin.
-        \item<7-> The concept and its implementation was created in 2008/2009 and announced in a 9 pages paper writen by Satoshi Nakamoto.
-    \end{itemize}
-
-    \only<2> {
-        \begin{exampleblock}{Ledger}
-            The \st{foundation of accounting}, are as ancient as writing and money.
-        \end{exampleblock}
-    }
-
-    \only<3> {
-        \begin{exampleblock}{Cryptographic}
-            The procedures and protocols to \st{append} new data to the ledger implies the use of cryptographic techniques.
-        \end{exampleblock}
-    }
-
-    \only<4> {
-        \begin{exampleblock}{Distributed}
-            Not a single entity is the owner of the data, but it is \st{replicated} in every participant of the network.
-        \end{exampleblock}
-    }
-
-    \only<6> {
-        \begin{exampleblock}{Bitcoin}
-            was the first and most popular \st{\eh{peer-to-peer} value exchange} network.
-        \end{exampleblock}
-    }
-
-    \only<8> {
-        \begin{exampleblock}{Satoshi Nakamoto}
-            is a pseudonym of an anonymous individual or group that developed the idea of Blockchain and Bitcoin.
-        \end{exampleblock}
-    }
-
-    \end{overlayarea}
-\end{frame}
-%--------------------------------End-----------------------------------
-
-
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{What is a Blockchain?}
-
-    \begin{overlayarea}{\textwidth}{\textheight}
-
-    \vspace{4ex}
-
-    \only<1-> {
-        \centering {\LARGE Now we know, but\ldots how does it look like?}
-    }
-
-    \only<2-> {
-        \vspace{4ex}
-        \includegraphics[scale=0.26]{../img/block-chain.png}
-    }
-
-    \end{overlayarea}
-\end{frame}
-%--------------------------------End-----------------------------------
-
-
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{What is a Blockchain?}
-
-    \begin{overlayarea}{\textwidth}{\textheight}
-
-    \vspace{4ex}
-
-    \only<1-> {
-        \centering {\huge Cool! But why?}
-    }
-
-    \only<2-> {
-        \vspace{4ex}
-        \begin{itemize}
-            \item \alert{Supress} the trusted third-party (i.e. Financial institutions and Banks).
-            \item \alert{Empower} people.
-            \item Almost \alert{immediate} transactions.
-            \item  % TODO
-        \end{itemize}
-
-    }
-
-    \end{overlayarea}
-\end{frame}
-%--------------------------------End-----------------------------------
-
-
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{A bit more background}
-
-    \begin{itemize}
-        \item Since Bitcoin appearance in 2009, several other \st{cryptocurrencies} emerged.
-        \pause
-        \item Currently most of them are based in some kind of Blockchain.
-        \pause
-        \item Blockchain provides a reliable infrastructure that provides \st{at least} 2 out of the 3 properties of \st{CIA triad}: \alert{integrity} and \alert{availability}.
-    \end{itemize}
-
-    \begin{exampleblock}{Integrity}<4->
-        The use of asymetric cryptography guarantees the integrity of data.
-    \end{exampleblock}
-
-    \begin{exampleblock}{Availability}<5->
-        As a decentralized network, there is no single point of failure.
-    \end{exampleblock}
-
-    \begin{block}{Confidentiality}<6->
-        Some implementations seems that could provide it as well (ZCash?).
-    \end{block}
-
-\end{frame}
-%--------------------------------End-----------------------------------
-
-\section{How does it work?}
-\subsection{Consensous}
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{How does it work?}
-
-    \begin{overlayarea}{\textwidth}{0.7\textheight}
-
-    \only<1-> {
+    %%%%%%%%%%%%%%%%%%%%% Custom title %%%%%%%%%%%%%%%%%%%%%
+    \begin{frame}
         \begin{center}
-            \LARGE \ts{``It is all about consensous''}
+            \vspace{-4mm}\begin{center}
+                             \includegraphics[scale=0.15]{../img/gft.jpg}
+            \end{center}
+
+            %\rule{\linewidth}{1.5pt} \\[3mm]
+            \vspace{1cm}
+            {\huge \bfseries \textcolor{MidnightBlue!100!bg}{ An introduction to\\[3mm] \textcolor{DarkBlue}{Blockchain} technology }} \\[3mm]
+            %\rule{\linewidth}{1.5pt} \\[3mm]
+
+            \vspace{1 cm}
+            Gerard Bosch (gerard.bosch@gmail.com)
+
+            \vspace{0.8cm}\today
         \end{center}
-    }
-
-    \only<2-6> {
-        \begin{itemize}\itemsep=1ex
-            \pause
-            \item Blockchain concept is in continuous \st{evolution} and new protocols are continuously created to improve the current flaws.
-            \pause
-            \item Earliest implementations (which includes Bitcoin and Ethereum) are using a system called \eh{Proof of Work} (\st{PoW}) to \alert{validate} the transactions.
-            \pause
-            \item \st{Validation} is required in order to append a new block of transactions to the chain; preventing things such as double spend.
-            \pause
-            \item The process of block validation is known as \st{mining}.
-            \pause
-            \item Lately a new system called \ts{Proof of Stake} (\st{PoS}) was developed to address PoW drawbacks.
-        \end{itemize}
-    }
-
-    \only<7-> {
-        \begin{itemize}\itemsep=1ex
-            \item<7-> Nodes are motivated to maintain the network with a \st{reward} coming from transaction fees.
-            \item<8-> Hence, \alert{consensus} is achieved though these systems.
-        \end{itemize}
-    }
-
-    \end{overlayarea}
-\end{frame}
-%--------------------------------End-----------------------------------
+    \end{frame}
+    %%%%%%%%%%%%%%%%%%%%%% End title %%%%%%%%%%%%%%%%%%%%%%%
 
 
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{Transaction workflow}
 
-    \begin{enumerate}\itemsep=4ex
-        \item Clients creates and \alert{signs} transactions (TX) using its private key, then they \st{broadcasts} TX to the network.
-        \item Network nodes (miners) receives transactions and stores them in the so called \st{mempool}.
-        \item Miners \alert{prioritize} transactions based on fees, \alert{validate} and \alert{put} them in a block.
-        \item Once successfully created and \alert{verified} by the network, the block is finally \alert{appended} to the chain.
-    \end{enumerate}
-
-\end{frame}
-%--------------------------------End-----------------------------------
+    %\maketitle
+    \frame[shrink]{\frametitle{Outline}\tableofcontents[hideallsubsections]}
 
 
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
+    \section{Preliminary concepts}
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{What is a Blockchain?}
 
-    \begin{center}
-        \huge But how does it work under the hood?
-    \end{center}
+        \begin{overlayarea}{\textwidth}{\textheight}
 
-\end{frame}
-%--------------------------------End-----------------------------------
+            \vspace{3ex}
 
-
-\subsection{Proof of Work}
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{Proof of Work: The Bitcoin case}
-    \begin{overlayarea}{\textwidth}{\textheight}
-
-    \only<1-2> {
-    \vspace{2ex}
-    \begin{exampleblock}{Block creation (mining)}
-        Participants of a Blockchain network put computational \alert{resources} to validate transactions by \alert{solving} the so called \st{cryptographic puzzles}.
-    \end{exampleblock}
-    }
-
-    \only<2> {
-        \begin{itemize}\itemsep=1ex
-            \item Block validation consist in finding a \st{nonce} (number) for the block that \st{satisfies} a property of the block's hash (a number of leading zeroes).
-            \item This is a trial and error procedure (a kind of brute-force).
-            \item The first node that find a successful solution \st{announce} it to the network.
-            \item The rest of the nodes can \alert{easily verify} that the solution (and hence the block) is valid.
-            \item If a node acts \alert{dishonestly}, the rest of nodes will discard the block.
-        \end{itemize}
-    }
-
-%    \visible<3> {
-%        \begin{block}{How?}
-%            Taking the solution (nonce) into the block and computing block's hash (SHA-256) must result in a hash with a leading number of zeroes.\\
-%            This is easy to verify for any node.
-%        \end{block}
-%    }
-
-    % Drawbacks
-    \only<3> {
-        \vspace{2ex}
-        \begin{alertblock}{Drawbacks}
             \begin{itemize}
-                \item Huge energy consumption.
-                \item Susceptible to a 51\% attack.
-                \item Democratization of the network (hardware, electricity price,\ldots)
+                \itemsep=1.35ex
+                \item A \alert{distributed cryptographic ledger} shared amongst all nodes participating in a network, over which every transaction is recorded.
+                \item<5-> Blockchain serves as the \alert{underlying} technology of several \st{cryptocurrencies} such as Bitcoin.
+                \item<7-> The concept and its implementation was created in 2008/2009 and announced in a 9 pages paper writen by Satoshi Nakamoto.
             \end{itemize}
-        \end{alertblock}
-    }
 
-    \end{overlayarea}
-\end{frame}
-%--------------------------------End-----------------------------------
+            \only<2> {
+            \begin{exampleblock}{Ledger}
+                The \st{foundation of accounting}, are as ancient as writing and money.
+            \end{exampleblock}
+            }
+
+            \only<3> {
+            \begin{exampleblock}{Cryptographic}
+                The procedures and protocols to \st{append} new data to the ledger implies the use of cryptographic techniques.
+            \end{exampleblock}
+            }
+
+            \only<4> {
+            \begin{exampleblock}{Distributed}
+                Not a single entity is the owner of the data, but it is \st{replicated} in every participant of the network.
+            \end{exampleblock}
+            }
+
+            \only<6> {
+            \begin{exampleblock}{Bitcoin}
+                was the first and most popular \st{\eh{peer-to-peer} value exchange} network.
+            \end{exampleblock}
+            }
+
+            \only<8> {
+            \begin{exampleblock}{Satoshi Nakamoto}
+                is a pseudonym of an anonymous individual or group that developed the idea of Blockchain and Bitcoin.
+            \end{exampleblock}
+            }
+
+        \end{overlayarea}
+    \end{frame}
+    %--------------------------------End-----------------------------------
 
 
-\subsection{Proof of Stake}
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{Proof of Stake}
-    \begin{overlayarea}{\textwidth}{0.85\textheight}
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{What is a Blockchain?}
 
-    \only<1-2> {
-        Given the aforementioned problems that PoW presents, the new Proof of Stake (PoS) model was developed.
-        
-        \begin{exampleblock}{Block creation (forging)}
-            Participants of the network \alert{stake} an amount of currency they hold (a kind of deposit) to be able to forge and \alert{send} a block to the network.
-        \end{exampleblock}
-    }
-    
-    \only<2> {
+        \begin{overlayarea}{\textwidth}{\textheight}
+
+            \vspace{4ex}
+
+            \only<1-> {
+            \centering {\LARGE Now we know, but\ldots how does it look like?}
+            }
+
+            \only<2-> {
+            \vspace{4ex}
+            \includegraphics[scale=0.26]{../img/block-chain.png}
+            }
+
+        \end{overlayarea}
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{What is a Blockchain?}
+
+        \begin{overlayarea}{\textwidth}{\textheight}
+
+            \vspace{4ex}
+
+            \only<1-> {
+            \centering {\huge Cool! But why?}
+            }
+
+            \only<2-> {
+            \vspace{4ex}
+            \begin{itemize}
+                \item \alert{Supress} the trusted third-party (i.e. Financial institutions and Banks).
+                \item \alert{Empower} people.
+                \item Almost \alert{immediate} transactions.
+                \item
+                % TODO
+            \end{itemize}
+
+            }
+
+        \end{overlayarea}
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{A bit more background}
+
         \begin{itemize}
-            \item The next block creator (called forger) will be chosen randomly following certain criteria.
-            \item The forger \st{verifies} transactions, \st{forges} a new block and \st{sends} it to the network.
-            \item Such as in PoW, new block is added to the chain and forger receives transaction fees (and its stake back).
-            \item If the forger acts \alert{dishonestly}, the rest of nodes will discard the block and forger will \alert{lose} the \st{stake}.
+            \item Since Bitcoin appearance in 2009, several other \st{cryptocurrencies} emerged.
+            \pause
+            \item Currently most of them are based in some kind of Blockchain.
+            \pause
+            \item Blockchain provides a reliable infrastructure that provides \st{at least} 2 out of the 3 properties of \st{CIA triad}: \alert{integrity} and \alert{availability}.
         \end{itemize}
-    }
 
-    \only<3> {
-        \begin{exampleblock}{Pros}
-            \begin{itemize}
-                \item A way more \st{energy} efficient: there are no computational resources required.
-                \item More democratization and hence \st{decentralization}.
-                \item \st{Security}: Purchasing more than half of the coins is likely more costly than acquiring 51\% of PoS hashing power.
-            \end{itemize}
+        \begin{exampleblock}{Integrity}
+            <4->
+            The use of asymetric cryptography guarantees the integrity of data.
         \end{exampleblock}
-        
-        \begin{alertblock}{}
-            Several proposals has been presented, studied and even implemented but PoS faces some \alert{challenges} that must be addressed.
-        \end{alertblock}
 
-    }
-    
-    \only<4> {
-        \vspace{2mm}
+        \begin{exampleblock}{Availability}
+            <5->
+            As a decentralized network, there is no single point of failure.
+        \end{exampleblock}
+
+        \begin{block}{Confidentiality}
+            <6->
+            Some implementations seems that could provide it as well (ZCash?).
+        \end{block}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+    \section{How does it work?}
+    \subsection{Consensus}
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{How does it work?}
+
+        \begin{overlayarea}{\textwidth}{0.7\textheight}
+
+            \only<1-> {
+            \begin{center}
+                \Huge \ts{``It is all about consensus''}
+            \end{center}
+            }
+
+            \only<2-6> {
+            \begin{itemize}
+                \itemsep=1ex
+                \pause
+                \item Blockchain concept is in continuous \st{evolution} and new protocols are continuously created to improve the current flaws.
+                \pause
+                \item Earliest implementations (which includes Bitcoin and Ethereum) are using a system called \eh{Proof of Work} (\st{PoW}) to \alert{validate} the transactions.
+                \pause
+                \item \st{Validation} is required in order to append a new block of transactions to the chain; preventing things such as double spend.
+                \pause
+                \item The process of block validation is known as \st{mining}.
+                \pause
+                \item Lately a new system called \ts{Proof of Stake} (\st{PoS}) was developed to address PoW drawbacks.
+            \end{itemize}
+            }
+
+            \only<7-> {
+            \begin{itemize}
+                \itemsep=1ex
+                \item<7-> Nodes are motivated to maintain the network with a \st{reward} coming from transaction fees.
+                \item<8-> Hence, \alert{consensus} is achieved though these systems.
+            \end{itemize}
+            }
+
+        \end{overlayarea}
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{Transaction workflow}
+
+        \begin{enumerate}
+            \itemsep=4ex
+            \item Clients creates and \alert{signs} transactions (TX) using its private key, then they \st{broadcasts} TX to the network.
+            \item Network nodes (miners) receives transactions and stores them in the so called \st{mempool}.
+            \item Miners \alert{prioritize} transactions based on fees, \alert{validate} and \alert{put} them in a block.
+            \item Once successfully created and \alert{verified} by the network, the block is finally \alert{appended} to the chain.
+        \end{enumerate}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+        \begin{center}
+            \huge But how does it work under the hood?
+        \end{center}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    \subsection{Proof of Work}
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{Proof of Work: The Bitcoin case}
+        \begin{overlayarea}{\textwidth}{\textheight}
+
+            \only<1-2> {
+            \vspace{2ex}
+            \begin{exampleblock}{Block creation (mining)}
+                Participants of a Blockchain network put computational \alert{resources} to validate transactions by \alert{solving} the so called \st{cryptographic puzzles}.
+            \end{exampleblock}
+            }
+
+            \only<2> {
+            \begin{itemize}
+                \itemsep=1ex
+                \item Block validation consist in finding a \st{nonce} (number) for the block that \st{satisfies} a property of the block's hash (a number of leading zeroes).
+                \item This is a trial and error procedure (a kind of brute-force).
+                \item The first node that find a successful solution \st{announce} it to the network.
+                \item The rest of the nodes can \alert{easily verify} that the solution (and hence the block) is valid.
+                \item If a node acts \alert{dishonestly}, the rest of nodes will discard the block.
+            \end{itemize}
+            }
+
+            %    \visible<3> {
+            %        \begin{block}{How?}
+            %            Taking the solution (nonce) into the block and computing block's hash (SHA-256) must result in a hash with a leading number of zeroes.\\
+            %            This is easy to verify for any node.
+            %        \end{block}
+            %    }
+
+            % Drawbacks
+            \only<3> {
+            \vspace{2ex}
+            \begin{alertblock}{Drawbacks}
+                \begin{itemize}
+                    \item Huge energy consumption.
+                    \item Susceptible to a 51\% attack.
+                    \item Democratization of the network (hardware, electricity price,\ldots)
+                \end{itemize}
+            \end{alertblock}
+            }
+
+        \end{overlayarea}
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    \subsection{Proof of Stake}
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{Proof of Stake}
+        \begin{overlayarea}{\textwidth}{0.85\textheight}
+
+            \only<1-2> {
+            Given the aforementioned problems that PoW presents, the new Proof of Stake (PoS) model was developed.
+
+            \begin{exampleblock}{Block creation (forging)}
+                Participants of the network \alert{stake} an amount of currency they hold (a kind of deposit) to be able to forge and \alert{send} a block to the network.
+            \end{exampleblock}
+            }
+
+            \only<2> {
+            \begin{itemize}
+                \item The next block creator (called forger) will be chosen randomly following certain criteria.
+                \item The forger \st{verifies} transactions, \st{forges} a new block and \st{sends} it to the network.
+                \item Such as in PoW, new block is added to the chain and forger receives transaction fees (and its stake back).
+                \item If the forger acts \alert{dishonestly}, the rest of nodes will discard the block and forger will \alert{lose} the \st{stake}.
+            \end{itemize}
+            }
+
+            \only<3> {
+            \begin{exampleblock}{Pros}
+                \begin{itemize}
+                    \item A way more \st{energy} efficient: there are no computational resources required.
+                    \item More democratization and hence \st{decentralization}.
+                    \item \st{Security}: Purchasing more than half of the coins is likely more costly than acquiring 51\% of PoS hashing power.
+                \end{itemize}
+            \end{exampleblock}
+
+            \begin{alertblock}{}
+                Several proposals has been presented, studied and even implemented but PoS faces some \alert{challenges} that must be addressed.
+            \end{alertblock}
+
+            }
+
+            \only<4> {
+            \vspace{2mm}
+            \centering
+            {\huge \sl{`` Not so \alert{trivial} ''}}
+
+            \vspace{3ex}
+            \begin{columns}[c]
+                \column{0.5\textwidth}
+                \includegraphics[scale=0.245]{../img/ouroboros-1.png}
+
+                \column{0.5\textwidth}
+                \includegraphics[scale=0.255]{../img/ouroboros-2.png}
+            \end{columns}
+            \vspace{1ex}
+            {\footnotesize Ouroboros: A Provably Secure Proof-of-Stake Blockchain Protocol}
+            }
+
+        \end{overlayarea}
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+    \section{Blockchain by generations}
+    \subsection{First generation}
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+    \section{Cardano: A scientific research driven Blockhain}
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{Cardano}
+
         \centering
-        {\huge \sl{`` Not so \alert{trivial} ''}}
-        
-        \vspace{3ex}
-        \begin{columns}[c]
-            \column{0.5\textwidth}
-            \includegraphics[scale=0.245]{../img/ouroboros-1.png}
-            
-            \column{0.5\textwidth}
-            \includegraphics[scale=0.255]{../img/ouroboros-2.png}
-        \end{columns}
-        \vspace{1ex}
-        {\footnotesize Ouroboros: A Provably Secure Proof-of-Stake Blockchain Protocol}
-    }
-    
-\end{overlayarea}
-\end{frame}
-%--------------------------------End-----------------------------------
+        \includegraphics[scale=0.07]{../img/cardano.png}
+
+        \begin{itemize}
+            \itemsep=1.35ex
+            \item Born in 2015 as an effort to \st{change the way} cryptocurrencies are designed and developed.
+            \item Developed together for IOHK company and several universities.
+            \item \st{Scientific} research \st{model} and \alert{peer review}.
+            \item The Blockchain for ADA cryptocurrency.
+            \item Considered a \alert{3rd generation} Blockchain.
+            \item Different approach: \alert{How to scale} instead of how many TPS.
+            \item Current development roadmap planned at least until 2020.
+            \item ADA was launched to trade at October 2017.
+        \end{itemize}
 
 
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
-
-\end{frame}
-%--------------------------------End-----------------------------------
+    \end{frame}
+    %--------------------------------End-----------------------------------
 
 
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{Cardano}
 
-\end{frame}
-%--------------------------------End-----------------------------------
-
-\section{Blockchain by generations}
-\subsection{First generation}
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
-
-\end{frame}
-%--------------------------------End-----------------------------------
-
-
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
-
-\end{frame}
-%--------------------------------End-----------------------------------
-
-
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
-
-\end{frame}
-%--------------------------------End-----------------------------------
-
-
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
-
-\end{frame}
-%--------------------------------End-----------------------------------
-
-\section{Cardano: A scientific research driven Blockhain}
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{Cardano}
-    
-    \centering
-    \includegraphics[scale=0.07]{../img/cardano.png}
-
-    \begin{itemize}\itemsep=1.35ex
-        \item Born in 2015 as an effort to \st{change the way} cryptocurrencies are designed and developed.
-        \item Developed together for IOHK company and several universities.
-        \item \st{Scientific} research \st{model} and \alert{peer review}.
-        \item The Blockchain for ADA cryptocurrency.
-        \item Considered a \alert{3rd generation} Blockchain.
-        \item Different approach: \alert{How to scale} instead of how many TPS.
-        \item Current development roadmap planned at least until 2020.
-        \item ADA was launched to trade at October 2017.
-    \end{itemize}
-
-    
-\end{frame}
-%--------------------------------End-----------------------------------
-
-
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{Cardano}
-    
-    \only<1> {
         \begin{exampleblock}{Key features}
             \begin{itemize}
+                \item \st{Proof of Stake} (Ouroboros consensus algorithm)
                 \item More sustainable ecosystem.
                 \item Scalability
-                \item ??? integration with other Blockchains ???
+                \item \st{Interoperability} with other Blockchains
                 \item Smart contracts
                 \item Treasury
                 \item Based on \st{epochs} and \st{quorums}
@@ -487,188 +500,216 @@ Gerard Bosch (gerard.bosch@gmail.com)
                 \item Reduces network \st{pressure} by using RINA.
             \end{itemize}
         \end{exampleblock}
-    }
-    
-    \only<2> {
-        Aims to solve 3 main problems of current cyrptocurrencies:
-            
-        \begin{itemize}
-            \item Scalability
-            \item Interoperability
-            \item Sustainability
-        \end{itemize}
-    }
-    
-\end{frame}
-%--------------------------------End-----------------------------------
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
 
 
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{Cardano}
+        \begin{overlayarea}{\textwidth}{0.8\textheight}
 
-\end{frame}
-%--------------------------------End-----------------------------------
+            \only<1-> {
+            Aims to \alert{solve} 3 main problems of current cyrptocurrencies:
+            \begin{itemize}
+                \item Scalability
+                \item Interoperability
+                \item Sustainability
+            \end{itemize}
+            }
 
+            \only<2> {
+            \begin{block}{Scalability}
 
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
+                \begin{tabular}{lcl}
+                    \st{PoS} and  \st{parallelization} of epochs &  $\longrightarrow$ &  $\Delta$ TPS {\footnotesize (Transactions per second)} \\
+                    Split network in \st{subnets} (RINA)         &  $\longrightarrow$ &  $\nabla$ Bandwidth \\
+                    Pruning, compression, partitioning &  $\longrightarrow$ &  $\nabla$ Storage \\
 
-\end{frame}
-%--------------------------------End-----------------------------------
+                \end{tabular}
 
+            \end{block}
+            }
 
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
+            \only<3> {
+            \begin{block}{Interoperability}
+                Allow different cryptocurrencies to \st{talk each other}.
 
-\end{frame}
-%--------------------------------End-----------------------------------
+                Allows \st{metadata} into TX $\longrightarrow$ Better integration with banks/govs.
 
+            \end{block}
+            }
 
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
+            \only<4> {
+            \begin{block}{Interoperability}
 
-\end{frame}
-%--------------------------------End-----------------------------------
-
-
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
-
-\end{frame}
-%--------------------------------End-----------------------------------
-
-
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
-
-\end{frame}
-%--------------------------------End-----------------------------------
+            \end{block}
+            }
 
 
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
+        \end{overlayarea}
+    \end{frame}
+    %--------------------------------End-----------------------------------
 
-\end{frame}
-%--------------------------------End-----------------------------------
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
 
-
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
-
-\end{frame}
-%--------------------------------End-----------------------------------
+    \end{frame}
+    %--------------------------------End-----------------------------------
 
 
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
 
-\end{frame}
-%--------------------------------End-----------------------------------
-
-
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
-
-\end{frame}
-%--------------------------------End-----------------------------------
+    \end{frame}
+    %--------------------------------End-----------------------------------
 
 
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
 
-\end{frame}
-%--------------------------------End-----------------------------------
-
-
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
-
-\end{frame}
-%--------------------------------End-----------------------------------
+    \end{frame}
+    %--------------------------------End-----------------------------------
 
 
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
 
-\end{frame}
-%--------------------------------End-----------------------------------
-
-
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
-
-\end{frame}
-%--------------------------------End-----------------------------------
+    \end{frame}
+    %--------------------------------End-----------------------------------
 
 
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
 
-\end{frame}
-%--------------------------------End-----------------------------------
-
-
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
-
-\end{frame}
-%--------------------------------End-----------------------------------
+    \end{frame}
+    %--------------------------------End-----------------------------------
 
 
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
 
-\end{frame}
-%--------------------------------End-----------------------------------
-
-
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
-
-\end{frame}
-%--------------------------------End-----------------------------------
+    \end{frame}
+    %--------------------------------End-----------------------------------
 
 
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
 
-\end{frame}
-%--------------------------------End-----------------------------------
-
-
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
-
-\end{frame}
-%--------------------------------End-----------------------------------
+    \end{frame}
+    %--------------------------------End-----------------------------------
 
 
-%--------------------------------Frame---------------------------------
-\begin{frame}
-    \frametitle{}
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
 
-\end{frame}
-%--------------------------------End-----------------------------------
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
 
 
 
