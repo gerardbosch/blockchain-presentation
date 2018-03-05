@@ -141,7 +141,7 @@
                 \itemsep=1.35ex
                 \item A \alert{distributed cryptographic ledger} shared amongst all nodes participating in a network, over which every transaction is recorded.
                 \item<5-> Blockchain serves as the \alert{underlying} technology of several \st{cryptocurrencies} such as Bitcoin.
-                \item<7-> The concept and its implementation was created in 2008/2009 and announced in a 9 pages paper writen by Satoshi Nakamoto.
+                \item<7-> The \st{concept} and its implementation was created in 2008/2009 and announced in a 9 pages paper writen by Satoshi Nakamoto.
             \end{itemize}
 
             \only<2> {
@@ -216,7 +216,7 @@
             \only<2-> {
             \vspace{4ex}
             \begin{itemize}
-                \item \alert{Suppress} the necessity trusted third-party (i.e. Financial institutions and Banks).
+                \item \alert{Suppress} the necessity of trusted third-party (i.e. Financial institutions and Banks).
                 \item \alert{Empower} people.
                 \item Almost \alert{immediate} transactions.
                 \item Lower fees than traditional banking.
@@ -234,6 +234,7 @@
 
     %--------------------------------Frame---------------------------------
     \begin{frame}
+    \begin{overlayarea}{\textwidth}{0.9\textheight}
         \frametitle{A bit more background}
 
         \begin{itemize}
@@ -244,20 +245,36 @@
             \item Blockchain provides a reliable infrastructure that provides \st{at least} 2 out of the 3 properties of \st{CIA triad}: \alert{integrity} and \alert{availability}.
         \end{itemize}
 
-        \begin{exampleblock}{Integrity}<4->
+        \vspace{-1ex}
+        \only<1-6> {
+        \begin{exampleblock}{Integrity}<4-6>
             By the use of asymmetric cryptography the integrity of the data is guaranteed.
         \end{exampleblock}
 
-        \begin{exampleblock}{Availability}<5->
+        \begin{exampleblock}{Availability}<5-6>
             As a decentralized network, there is no single point of failure.
         \end{exampleblock}
 
-        \begin{block}{Confidentiality}<6->
+        \begin{block}{Confidentiality}<6>
             Some implementations seems that could provide it as well (e.g.\ ZCash).
         \end{block}
+        }
 
+        \only<7-> {
+            \vspace{3ex}
+            \centering
+            \begin{minipage}{0.7\textwidth}
+            \begin{alertblock}{}
+                \centering
+                {\large \ts{`` We can see it as an Internet-native way to store and exchange value ''}}
+            \end{alertblock}
+            \end{minipage}
+        }
+
+    \end{overlayarea}
     \end{frame}
     %--------------------------------End-----------------------------------
+
 
     \section{How does it work?}
     \subsection{Consensus}
@@ -437,21 +454,6 @@
     %--------------------------------End-----------------------------------
 
 
-    %--------------------------------Frame---------------------------------
-    \begin{frame}
-        \frametitle{}
-
-    \end{frame}
-    %--------------------------------End-----------------------------------
-
-
-    %--------------------------------Frame---------------------------------
-    \begin{frame}
-        \frametitle{}
-
-    \end{frame}
-    %--------------------------------End-----------------------------------
-
     \section{Blockchain by generations}
     \subsection{Preliminaries}
     %--------------------------------Frame---------------------------------
@@ -461,10 +463,11 @@
         \begin{block}{Turing Completeness}
             A programming language is said to be Turing Complete (TC) if can be used to simulate a Turing Machine and hence, to \alert{solve any} mathematical/ computational problem.\\[2ex]
                         
-            A TC-language has:
+            A TC-language has some important \st{properties}:
             \begin{itemize}
-             \item conditional branching;
-             \item infinite \textbf{looping} ability.
+                \item conditional branching;
+                \item infinite \textbf{looping} ability;
+                \item $[$\ldots$]$
             \end{itemize}
         \end{block}
 
@@ -491,7 +494,12 @@
             \includegraphics[scale=0.25]{../img/anonymous.png}
         \end{columns}
 
-        \begin{alertblock}{}<2->
+        \vspace{1ex}
+        \begin{exampleblock}{}<2->
+            For its nature is usually called ditital gold.
+        \end{exampleblock}
+
+        \begin{alertblock}{}<3->
             \textbf{Current} implementation presents \alert{scalability} issues ($\approx$ 7 TPS)
         \end{alertblock}
 
@@ -506,22 +514,23 @@
     \begin{overlayarea}{\textwidth}{0.8\textheight}    
         \frametitle{Second Generation: Ethereum}
         
-        Ethereum which is considered a \st{second generation Blockchain} was released in 2015 after two years of research and development.
+        Ethereum, which is considered a \st{second generation Blockchain}, was released in 2015 after two years of research and development.
 
         \begin{columns}
         
             \column{0.74\textwidth}
+            \begin{itemize}\itemsep=0.4ex
+                \item Co-founded by Vitalik Buterin, a young cryptocurrency researcher/programmer.
+                \item Features a \textbf{TC-complete} programming language called \textbf{Solidity} {\footnotesize(and experimental Vyper)}.
+                \item An \st{abstraction} of the 1st gen. that allows \alert{not only} exchange ``money'' but the execution of any program.
+                \item These programs are called \st{Smart Contracts}.
+                \item Users pay fees for contract (program) execution.
+            \end{itemize}
                     
-                    \begin{itemize}\itemsep=0.4ex
-                        \item Founded by Vitalik Buterin, a young cryptocurrency researcher/programmer.
-                        \item Features a \textbf{TC-complete} programming language called \textbf{Solidity}.
-                        \item An \st{abstraction} of the 1st gen. that allows \alert{not only} exchange ``money'' but the execution of any program.
-                        \item These programs are called \st{Smart Contracts}.
-                        \item Users pay fees for contract (program) execution.
-                    \end{itemize}
-                    
-                \column{0.26\textwidth}
-                \includegraphics[scale=0.15]{../img/vitalik.png}
+            \column{0.26\textwidth}
+            \centering
+            \includegraphics[scale=0.15]{../img/vitalik.png}
+            {\scriptsize Vitalik Buterin}
         \end{columns}
         
         \begin{exampleblock}{}<2->
@@ -562,85 +571,57 @@
     %--------------------------------End-----------------------------------
 
 
-    %--------------------------------Frame---------------------------------
-    \begin{frame}
-        \frametitle{}
-
-    \end{frame}
-    %--------------------------------End-----------------------------------
-
-
+    \subsection{Third Generation}
     %--------------------------------Frame---------------------------------
     \begin{frame}
     \begin{overlayarea}{\textwidth}{0.75\textheight}
         \frametitle{Third Generation}
 
-        The third generation of Blockchain is mainly focused to \st{address} two main issues:
+        The 3rd generation of Blockchain is mainly focused to \st{address} two of main issues of the 2nd generation:
     
         \vspace{1ex}
     
-        \only<1> {
+        \only<1-3> {
             \begin{itemize}
                 \item Scalability
                 \item Security
             \end{itemize}
-        }
+
         
-        \only<2-> {
+
             \begin{block}{Scalability}<2->
-                A 3rd generation of Blockchain should be able to scale to several thousands of TPS.\\[1ex]
+                A 3rd generation of Blockchain should be able to scale to \st{several thousands} of TPS.\\[1ex]
                 
-                Network usage (bandwidth) and data storage should scale efficiently.
+                Network usage (\st{bandwidth}) and \st{data} storage should scale efficiently.
             \end{block}
             
             \begin{block}{Security}<3->
                 Smart contracts should be able to be verified using \st{Formal Verification}.
             \end{block}
-            
-            \begin{exampleblock}{Cardano}<4->
-                is a 3rd generation Blockchain focused to address limitations with 2nd generation Blockchains.
-            \end{exampleblock}
         }
-        
-        
+
+        \only<4-> {
+
+            \begin{columns}
+
+                \column{0.42\textwidth}
+                \begin{exampleblock}{Cardano}
+                    is a 3rd generation Blockchain focused to address limitations of 2nd generation Blockchains.
+                \end{exampleblock}
+
+                \column{0.45\textwidth}
+                \centering
+                \includegraphics[scale=0.15]{../img/hoskinson.png}\\
+                {\scriptsize Charles Hoskinson,\\ co-founder of Cardano\\[-1ex] and former co-founder of Ehtereum}
+
+            \end{columns}
+        }
     \end{overlayarea}
     \end{frame}
     %--------------------------------End-----------------------------------
 
 
-    %--------------------------------Frame---------------------------------
-    \begin{frame}
-        \frametitle{}
-
-    \end{frame}
-    %--------------------------------End-----------------------------------
-
-
-    %--------------------------------Frame---------------------------------
-    \begin{frame}
-        \frametitle{}
-
-    \end{frame}
-    %--------------------------------End-----------------------------------
-
-
-    %--------------------------------Frame---------------------------------
-    \begin{frame}
-        \frametitle{}
-
-    \end{frame}
-    %--------------------------------End-----------------------------------
-
-
-    %--------------------------------Frame---------------------------------
-    \begin{frame}
-        \frametitle{}
-
-    \end{frame}
-    %--------------------------------End-----------------------------------
-
-
-    \section{Cardano: A scientific research driven Blockchain}
+    \section{Cardano: A scientific research-driven Blockchain}
     %--------------------------------Frame---------------------------------
     \begin{frame}
         \frametitle{Cardano}
@@ -736,14 +717,76 @@
             \end{block}
             }
 
-
         \end{overlayarea}
     \end{frame}
     %--------------------------------End-----------------------------------
 
+    \section{Cryptocurrency wallets}
     %--------------------------------Frame---------------------------------
     \begin{frame}
         \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    \section{Why is it revolutionary?}
+    \subsection{Decentralized world}
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{Decentralized world}
+
+
+
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    \subsection{Worldwide financial services}
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{Worldwide finantial services}
+
+        \begin{itemize}\itemsep=1.35ex
+            \item $>$50\% of world's population ({\footnotesize 2-3 billion people}) does not have acces to formal or any kind of financial services at all.
+            \item People \st{sending money} to their families in developing or third world countries pay \alert{very high} fees.
+            \item Access to \st{loans} for those unbanked collectives is difficult and they pay \alert{extraordinary high} interests ({\footnotesize $>$100\% in some cases}).
+        \end{itemize}
+
+
+        \begin{exampleblock}{}<2->
+            Blockchain and Smart Contracts could provide the infrastructure to tackle the problem.
+        \end{exampleblock}
+
+        \begin{alertblock}{But...}<3->
+            Only 54.4\% of world's population have access to Internet ({\footnotesize Internet World Stats 2018}).
+        \end{alertblock}
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+
+    \section{Some conclusions}
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{Some conclusions}
+
+        As a result of all these, one can think:
+
+        \begin{itemize}
+            \item Wow! Technology is always awesome and has power to change the world.
+            \item Traditional financial model is becoming out-dated.
+            \item But for now, Blockchain ecosystem is probably not mature enough.
+        \end{itemize}
 
     \end{frame}
     %--------------------------------End-----------------------------------
