@@ -1,34 +1,9 @@
-os: linux
-
-# we use the R VM because it contains LaTeX and pandoc
-language: r
-
-# we need super user privileges, so we depend on the old travis-ci infrastructure
 sudo: required
-
-# we can install additional software
-#apt_packages:
-## we download pdf2djvu to also generate a djvu file of our LaTeX source
-#  - pdf2djvu
-
+dist: trusty
+before_install:
+  - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-full
 script:
-## if you have a markdown source, you can use pandoc to convert it to a LaTeX document
-#  - cat README.md | grep --invert-match "\[\!\[" > README2.md
-#  - cat README2.md | grep --invert-match "Howto Deploy LaTeX Documents" > README.md
-#  - pandoc -s --from=markdown_github --to=latex -M title="A technical introduction to Blockchain technology" -M author="Gerard Bosch" -V geometry:a4paper,margin=2cm -o README.tex README.md
-#
-## in the next step we use pdflatex to convert .tex to .pdf
-## of course we could use pandoc for this also, but pdflatex generates nicer PDFs
-  - pdflatex -interaction=nonstopmode main.tex
-
-#  - pdflatex -interaction=nonstopmode README.tex
-#
-## now we convert the pdf file to a much smaller djvu document
-#  - pdf2djvu -d 1200 -o main.djvu main.pdf
-
-#after_success:
-## upload the previously generated pdf file to your server (use $UPLOADSECRET as password)
-##  - wget --post-file=main.pdf -q -O- "https://simonwaldherr.de/pdf/?repo=HowtoDeployLatexDocs&mode=save&key=$UPLOADSECRET&pull=$TRAVIS_PULL_REQUEST"
+  - pdflatex -interaction=nonstopmode -halt-on-error src/main.tex
 
 deploy:
   # provider releases means GitHub Releases
@@ -49,6 +24,7 @@ deploy:
 #    - "README.pdf"
 #    - "HowtoDeployLatexDocs-DE.djvu"
 #    - "HowtoDeployLatexDocs-EN.djvu"
+
   skip_cleanup: true
   on:
     branch: master
