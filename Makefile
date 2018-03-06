@@ -21,7 +21,7 @@ clean:
 
 build:
 	mkdir $(OUTPUTDIR)
-	sudo docker run -it -v $(BASEDIR):/var/texlive harshjv/texlive-2015 sh -c "cd src && pdflatex $(TEXFILE)"
+	sudo docker run -it -v $(BASEDIR):/var/texlive harshjv/texlive-2015 sh -c "cd src && pdflatex $(TEXFILE) && pdflatex $(TEXFILE)"
 	mv "src/$(PDFFILE)" $(OUTPUTDIR)
 	#cp CNAME $(OUTPUTDIR)
 	cp index.html $(OUTPUTDIR)
