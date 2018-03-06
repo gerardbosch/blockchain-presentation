@@ -565,9 +565,13 @@
         \end{minipage}
         \end{center}
 
-        \begin{exampleblock}{Example}<2->
-            %TODO
-            TODO
+        \begin{exampleblock}{Example: ICO}<2->
+            When participating in an Initial Coin Offer (ICO) a user \alert{sends funds} (an investment) to a Smart Contract.\\[2ex]
+
+            The contract \alert{encodes the rules} of the agreement: usually a number of tokens proportional to the investment will be
+            sent back to the user (which represents his investment in the project).\\[2ex]
+
+            \alert{No third party} is involved.
         \end{exampleblock}
 
 
@@ -732,19 +736,90 @@
 
         % TODO
         TODO - Work in progress...
+        % Blockchain: Don't need to trust anyone but yourself.
+        % Drawback? Key lost = irrecoverable funds
+
+
 
     \end{frame}
     %--------------------------------End-----------------------------------
 
 
     \section{Why is it revolutionary?}
-    \subsection{Decentralized world}
+    \subsection{The future is decentralized}
     %--------------------------------Frame---------------------------------
     \begin{frame}
-        \frametitle{Decentralized world}
+        \frametitle{The future is decentralized}
+
+        \visible<1-> {
+            Since its creation, Internet has been \st{mostly} centralized\footnote{ARPANET hosts file is a great example.},
+            which implies that it is:
+
+            \vspace{-1ex}
+            \begin{itemize}
+                \item Easy to \alert{watch/monitor}
+                \item Easy to \alert{censor}
+                \item Easy to \alert{attack}
+                \item \alert{Fragile} to failure
+            \end{itemize}
+
+            During the years more distributed and P2P protocols has been deployed, but client-server model is the most common yet.
+        }
+
+        \vspace{1ex}
+        \visible<2-> {
+            \begin{exampleblock}{}
+                But the appearance of new P2P systems can drive Internet to a new state
+            \end{exampleblock}
+        }
+
+    \end{frame}
+    %--------------------------------End-----------------------------------
 
 
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{The future is decentralized}
 
+        \only<1> {
+            \centering\includegraphics[scale=0.5]{../img/ipfs.pdf}
+
+            \begin{exampleblock}{A nice example}
+                \href{https://ipfs.io/}{IPFS} (Inter Planetary File System)
+            \end{exampleblock}
+
+            \begin{exampleblock}{Another example}
+                \href{https://steemit.com/}{Steemit} is a blogging/social media website built on top of a \st{Blockchain}.\\[1ex]
+
+                Steemit has proven to be able to run an entire social network in a Blockchain.\\[1ex]
+
+                All blog entries are stored in the Blockchain.
+            \end{exampleblock}
+        }
+
+        \only<2> {
+            \vspace{-2em}
+            \begin{center}{\huge The future of the Internet?}\end{center}
+
+            \vspace{2em}
+            \begin{columns}
+                \column{0.65\textwidth}
+                \centering
+                \begin{minipage}{5cm}
+                \begin{block}{Decentralization provides}
+                    \begin{itemize}
+                        \item censorship resistance
+                        \item freedom of Internet
+                        \item democratization
+                        \item more privacy
+                    \end{itemize}
+                \end{block}
+                \end{minipage}
+
+                \column{0.35\textwidth}
+                \includegraphics[scale=0.3]{../img/decentralization.png}
+            \end{columns}
+        }
 
     \end{frame}
     %--------------------------------End-----------------------------------
@@ -798,7 +873,7 @@
                     \itemsep=1.5ex
                     \item \st{\textbf{Starlink}} is a project of SpaceX and co-financed by Google that aims to provide a global Internet connection using a constellation of satellites.
                     \item Recently the first two satellites of what aims to conform a worldwide-available hi-speed Internet network have been launched.
-                    \item In near future, it will \alert{potentially provide} Internet access to millions of people that are offline nowadays.
+                    \item In near future, it could \alert{potentially provide} Internet access to hundreds of millions of people that are offline nowadays.
                 \end{itemize}
             }
 
@@ -819,7 +894,7 @@
             \column{0.35\textwidth}
             \centering
             \includegraphics[scale=0.247]{../img/starlink.jpg} \\[1ex]
-            {\Large $+$} \\[1ex]
+            {\Large +} \\[1ex]
             \includegraphics[scale=0.17]{../img/blockchain-fancy.jpg}
 
         \end{columns}

@@ -4,7 +4,7 @@
 
 LaTeX source and PDF for the presentation "A technical introduction to Blockchain technology".
 
-[Click here](http://gerardbosch.github.io/blockchain-presentation/) to see the updated PFD version.
+[Click here](http://gerardbosch.github.io/blockchain-presentation/) to see the up to date PFD version.
 
 The PDF build is done using Travis CI and published through GitHub Pages :) \
 (Check the `.travis.yml` and `Makefile` for further details)
