@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gerardbosch/blockchain-presentation.svg?branch=master)](https://travis-ci.org/gerardbosch/blockchain-presentation)
+
 # A technical introduction to Blockchain technology
 
 LaTeX source and PDF for the presentation "A technical introduction to Blockchain technology".
