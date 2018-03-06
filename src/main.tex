@@ -5,6 +5,7 @@
 
 \documentclass[notitlepage, usenames,dvipsnames]{beamer}
 \usefonttheme[onlymath]{serif}      %font serif (beamer usa sans-serif) per a l'entorn math
+
 \usepackage{beamerprosper}
 %\usepackage{pstricks-add}
 %\usepackage{beamertexpower}
@@ -15,8 +16,9 @@
 \usepackage{multicol}
 \usepackage{graphicx}
 \usepackage{comment}
+%\usepackage{pgfpages}
 
-%\setbeameroption{show notes on second screen=right}
+%\setbeameroption{show notes on second screen=right}    % pgfpages package
 \setbeamertemplate{navigation symbols}{}
 
 %% Aliases %%
@@ -50,11 +52,9 @@
 
 %% Full screen pdf %%
 %\hypersetup{pdfpagemode=FullScreen}
-\hypersetup{
-  colorlinks,
-  allcolors=.,
-  urlcolor=DarkBlue,
-}
+%\hypersetup{pdfstartview=Fit}
+\hypersetup{pdfpagelayout=SinglePage}
+\hypersetup{colorlinks,allcolors=.,urlcolor=DarkBlue}
 
 \title[Intro to Blockchain Technology]{A technical introduction to Blockchain technology}
 %\subtitle{}
@@ -823,13 +823,13 @@
             \centering
             Slides code available on GitHub: \\[1ex]
             \includegraphics[scale=0.06]{../img/github-repo.png}
-            \tiny \url{github.com/gerardbosch/blockchain-presentation}
+            \tiny \href{https://github.com/gerardbosch/blockchain-presentation}{github.com/gerardbosch/blockchain-presentation}
         
             \column{0.49\textwidth}
             \centering
             Updated PDF available online: \\
             \includegraphics[scale=0.06]{../img/online-pdf-qr.png}
-            \tiny \url{gerardbosch.github.io/blockchain-presentation/}
+            \tiny \href{https://gerardbosch.github.io/blockchain-presentation/}{gerardbosch.github.io/blockchain-presentation}
         
         \end{columns}
 
