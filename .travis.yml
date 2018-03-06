@@ -6,7 +6,7 @@ branches:
   only:
   - master
 before_install:
-- sudo docker build -t texlive .
+- sudo docker build -t texlive docker
 install:
 - pip install ghp-import
 script:
