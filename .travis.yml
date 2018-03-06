@@ -1,31 +1,18 @@
 sudo: required
-dist: trusty
+language: python
+services:
+- docker
+branches:
+  only:
+  - master
 before_install:
-  - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-full
+- sudo docker build -t texlive .
+install:
+- pip install ghp-import
 script:
-  - cd src && pdflatex -interaction=nonstopmode -halt-on-error main.tex
-
-deploy:
-  # provider releases means GitHub Releases
-  #provider: releases
-  provider: pages
-  skip-cleanup: true
-  #api_key:
-  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
-  keep-history: false
-  file: src/main.pdf
-
-# Travis CI public key encrypted GitHub oauth key for pushing to GitHub Releases
-#    secure: UNfN17F/m8PSbbU53/xHGqySzA/pyyrWIc42o6Mnb3EzOMlAhTLsHvnOTw8L27KEeszyZJp8TcyG0PCnFfTgzV3gWMc1tweLnPBwWYj+qFWqQyqc8pkG4xfMrEAfbFk20sYGQYoRnaws85uc/nCcXNhVKvcFMCaZUYcxJKV/Kdass4rsfc205nRqvXa3unWlg51YzNtAB2glGbhe9/Rw6SeeTJiUmcjWKPDEhTfCTF8X0d4QaM6RiDly+Vfzv9POf+FRk8HWrmiImxguxepHhb5Ellz7hPZlTQ6iEb+igzde7jxxUKc4otFSrDG45TLoQ8BKsf32AMUo/JjXMT29H2alEF3P/6pSaev2M9gyVsQbzCfxUQOUn5HilY0D3khEIiT1smK0LrQPrQcarldN4BLJm/WG9pzsjKOp3PZQ6Afy1TOG2LPJv+xOIJFhYHNQSp+jjRaPLxbDwcZfxGFPPTDJ2xJvPEoNjL3vT1bdppGgopZxShqmxxzolBMoG0Y+H87DKu7Zv8u3yyjxneP1dhb+StsTLS7GzahD3J2WjHos9UYZV2BGitMyy2j7GJQ5+oPBH3HdoiLjU8BcTOOQ7ZX6xDxBaA9MyT+Q6pYFuxpZkbmB/7GZFnizP7Hpf5WExGVIqlIeYM6zZSaha49SPWxdQSHDLZTUHVGcG4tDbLY=
-
-# the list of files to upload
-#  file:
-#    - "main.pdf"
-#    - "README.pdf"
-#    - "HowtoDeployLatexDocs-DE.djvu"
-#    - "HowtoDeployLatexDocs-EN.djvu"
-
-  skip_cleanup: true
-  on:
-    branch: master
-    #repo: SimonWaldherr/HowTo-Deploy-LaTeX-Documents
+- make clean
+- make build
+- make github
+env:
+  global:
+    secure: elkp31SWCh2LS6ORV86RRa/qYrpiiKRYejACFtIS6GC6FyYVQwtVmHpk+qXR+nMTt9GiTqQuOvuDlIer/yjlQ2FTjnibebWuUaI6PK44gfJ8IFriS0LaNDEnNwg1S13MoODGtG2aOA4Ej+YxMQgjrpUTTzDJskKZ0dGbUrSSYys/KYlDdv0iRubnzuwfrWqfCdbTndTdcj4pu3jpKXHZ1dnd43IaWt0IHI9SnO8xJn/FzumdDVzsKS0UBrgUIey+11axPoTLReyHBbfhwAi8djAeJmIK8+bSmR9zFK3yHp1ZBO0A8+6DacH+ZFue+q6+Cvp2v0k0bRu//ws36WOQqYoj3JRTQVgTkAMKIJBO0NaiKx1LPtq+4YJ9Cd/mcljXOzn56no7QZCeaygAMsS6HV5lL/B+2kse8VuYHes23W8BLHc1irCbeDr+bxxShEFOgMF3iuVT8fiO0ulbsfkkmOf9Q3Qp5BWa4fde9V73N+1w1ND3axy6duiJivA8marw6DsY8deAXWrTfF+IAT72xeMA9FrEm2QM1p8JO2ovPEjQGVyQ17zE3g0vhfJG6djGsYsfd+M4LSnWZ33K697+FcY36kczY0HuxhazOyQiQWJV02/HecNnH1RRQNkdu6Qar+MULzxOhnL3iK5rGwoG5fBsGkr1a0OaZ1lxlxGVUiw=
