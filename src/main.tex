@@ -81,21 +81,6 @@
 
 % TODO
 \begin{comment}
-        Blockchain uses cryptographic mechanisms
-
-        Crypto in crypto-currencies does not mean that all information in the Blockchain is encrypted and secret\ldots
-
-        Bitcoin Blockchain is not confidential at all as transaction details are public
-        \ldots but can be a difficult to trace back where the money came from.
-
-        % Ref: https://en.bitcoin.it/wiki/How_bitcoin_works#Cryptography
-
-        \st{Crypto} comes from the use of cryptographic techniques used by the operation of the protocol and network such as:
-        \begin{itemize}
-            \item Public-key (asymmetrical) cryptography
-            \item Cryptographic hashes (e.g. SHA-256 Bitcoin)
-            \item \ldots (probably more)
-        \end{itemize}
 
         Honest nodes control the network
 \end{comment}
@@ -300,7 +285,7 @@
                 \pause
                 \item Earliest implementations (which includes Bitcoin and Ethereum) are using a system called \eh{Proof of Work} (\st{PoW}) to \alert{validate} the transactions.
                 \pause
-                \item \st{Validation} is required in order to append a new block of transactions to the chain; preventing things such as double spend.
+                \item \st{Validation} is required in order to \textbf{append} a new block of transactions to the chain; preventing things such as double spend.
                 \pause
                 \item The process of block validation is known as \st{mining}.
                 \pause
@@ -730,29 +715,144 @@
     \section{Cryptocurrency wallets}
     %--------------------------------Frame---------------------------------
     \begin{frame}
-        \frametitle{Cryptocurrency wallets}
+        \frametitle{}
+        \begin{overlayarea}{\textwidth}{\textheight}
 
-        % TODO
-        TODO - Work in progress...
-        % Blockchain: Don't need to trust anyone but yourself.
-        % Drawback? Key lost = irrecoverable funds
-
-        % Paper wallet: can even be encrypted using a passphrase
-        % Brain wallet
-        % Hardware wallet
-        % Software? wallet? Electrum
-        % Dice Base6 generator throwing 99 times
+        \visible<1-> {
+            \vspace{6ex}
+            \begin{center}{\LARGE What is a cryptocurrency?}\end{center}
+        }
         
-        % Address reutilization, privacy, security
+        \vspace{1ex}
         
-        % Change address
+        \only<2-3> {
+            \begin{block}{Cryptocurrency}
+                A \textbf{digital asset} (or currency) that relies on cryptography to work and runs over a decentralized network, \st{typically} backed by a Blockchain.
+            \end{block}
+            
+            \only<2> {
+                \vspace{1ex}
+                % Ref: https://en.bitcoin.it/wiki/How_bitcoin_works#Cryptography
+                \alert{Crypto} in crypto-currency does \textbf{not} mean that all information in the Blockchain is \st{encrypted} and secret\ldots
+                \begin{itemize}
+                    \item Bitcoin Blockchain is not confidential at all as transaction details are public.
+                    \item \ldots But can be \st{challenging} to trace and \alert{relate} transactions.
+                \end{itemize}
+            }
+            
+            \only<3> {
+                \vspace{1ex}
+                \alert{Crypto} comes from the use of cryptographic techniques used by the protocol such as:
+                \begin{itemize}
+                    \item Public-key (asymmetrical) cryptography
+                    \item Cryptographic hashes (e.g. SHA-256 Bitcoin)
+                    \item \ldots \sl{(probably more)}
+                \end{itemize}
+            }
+        }
         
-        % https://walletgenerator.net/
-
-
+        \end{overlayarea}
     \end{frame}
     %--------------------------------End-----------------------------------
 
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{}
+        \begin{overlayarea}{\textwidth}{\textheight}
+
+        \visible<1-> {
+            \vspace{6ex}
+            \begin{center}{\LARGE What is a cryptocurrency \st{wallet}?}\end{center}
+        }
+        
+        \vspace{1ex}
+        
+        \only<2-> {
+            \begin{alertblock}{What is \textbf{not} a wallet\ldots}<2->
+                A software or physical device where your coins are \textbf{stored inside}.
+            \end{alertblock}
+            
+            \begin{exampleblock}{What is a wallet indeed\ldots}<3->
+                The term wallet can refer to 2 things:
+                
+                \begin{enumerate}
+                    \renewcommand{\theenumi}{\Alph{enumi}}
+                    \item a \st{software} that allows to interact with a Blockchain (a light client);
+                    \item a \st{store} for your addresses and its \alert{private keys};
+                \end{enumerate}
+                
+                where usually $A \supset B$.
+            \end{exampleblock}
+        }
+        
+        \end{overlayarea}
+    \end{frame}
+    %--------------------------------End-----------------------------------
+    
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{Type of wallets}
+        
+        \vspace{2ex}
+        Some different kind of wallets exist:
+        
+        \vspace{-1ex}
+        \begin{columns}[t]
+            \column{0.6\textwidth}
+            \begin{block}{By type}\centering
+            \begin{tabular}{p{0.41\textwidth}l}
+                \textbf{Type}  & \textbf{Example} \\ \hline
+                Software wallets & Electrum \\
+                Hardware wallets & Ledger \\
+                Paper wallets  & \href{https://walletgenerator.net}{walletgenerator.net} \\
+                Brain wallets  & \href{https://brainwallet.io/}{brainwallet.io} \\
+            \end{tabular}
+            \end{block}
+            
+            \column{0.3\textwidth}
+            \begin{block}{By storage mode}
+                \begin{itemize}
+                \item Hot storage
+                \item Cold storage
+                \end{itemize}
+            \end{block}
+        \end{columns}
+
+        \begin{block}{Hierarchical Deterministic Wallets (HD)}<2->
+        
+            \begin{itemize}
+             \item Introduced by BIP32 (2012), provides a way to generate \alert{several} addresses from a \alert{single} master key using key-derivation-functions.
+             \item The whole wallet is generated from a \st{seed} (12 words) and is the only thing the user needs to back up.
+            \end{itemize}
+            
+        \end{block}
+        
+    \end{frame}
+    %--------------------------------End-----------------------------------
+
+    
+
+    %--------------------------------Frame---------------------------------
+    \begin{frame}
+        \frametitle{Key notes}
+
+          % Blockchain: Don't need to trust anyone but yourself.
+        % Drawback? Key lost = irrecoverable funds
+        % Dice Base6 generator throwing 99 times
+        % Change address
+        
+        \begin{itemize}\itemsep=2.5ex
+            \item Address \textbf{reuse} is \alert{discouraged} as compromises \alert{privacy} and security\\ $\Rightarrow$ HD wallets allow zero-address reuse.
+            \item The user does not need to \alert{trust anyone} but himself to safely store his funds.
+            \item But the \alert{lost} of the key/seed results in the \alert{inability} to access the funds (unlike traditional banking).
+        \end{itemize}
+
+        
+    \end{frame}
+    %--------------------------------End-----------------------------------
+    
 
     \section{Why is it revolutionary?}
     \subsection{The future will be decentralized}
@@ -761,7 +861,8 @@
         \frametitle{The future will be decentralized}
 
         \visible<1-> {
-            Since its creation, Internet has been \st{mostly} centralized\footnote{ARPANET hosts file is a great example.},
+            
+            Since its creation, Internet has been \textbf{mostly} \st{centralized}\footnote{ARPANET hosts file is a great example.},
             which implies that it is:
 
             \vspace{-1ex}
@@ -772,13 +873,13 @@
                 \item \alert{Fragile} to failure
             \end{itemize}
 
-            During the years more distributed and P2P protocols has been deployed, but client-server model is the most common yet.
+            During the years more distributed and P2P protocols has been deployed, although \st{client-server} model is the most common yet.
         }
 
         \vspace{1ex}
         \visible<2-> {
             \begin{exampleblock}{}
-                But the appearance of new P2P systems can drive Internet to a new state
+                \textbf{But} the appearance of new P2P systems can drive Internet to a new state
             \end{exampleblock}
         }
 
