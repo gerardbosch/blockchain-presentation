@@ -133,7 +133,15 @@
 
             \only<2> {
             \begin{exampleblock}{Ledger}
-                The \st{foundation of accounting}, are as ancient as writing and money.
+                \vspace{2ex}
+                \begin{columns}[T]
+                    \column{0.65\textwidth}
+                    The \st{foundation of accounting}, are as ancient as writing and money (Mesopotamia $<$ 5000 B.C.).
+
+                    \column{0.3\textwidth}
+                    \includegraphics[scale=0.1]{../img/papyrus.png}
+
+                \end{columns}
             \end{exampleblock}
             }
 
@@ -312,7 +320,7 @@
 
         \begin{enumerate}
             \itemsep=4ex
-            \item Clients create and \alert{sign} transactions (TX) using their private key, then they \st{broadcast} TX to the network.
+            \item Clients \textbf{create} and \alert{sign} transactions (TX) using their private key, then they \st{broadcast} TX to the network.
             \item Network nodes (miners) receive transactions and store them in the so called \st{mempool}.
             \item Miners \alert{prioritize} transactions based on fees, \alert{validate} and \alert{put} them in a block.
             \item Once successfully created and \alert{verified} by the network, the block is finally \alert{appended} to the chain.
@@ -350,7 +358,7 @@
             \only<2> {
             \begin{itemize}
                 \itemsep=1ex
-                \item Block validation consists in finding a \st{nonce} (number) for the block that \st{satisfies} a property of the block's hash (a number of leading zeros) known as difficulty.
+                \item Block creation consists in finding a \st{nonce} (number) for the block that \st{satisfies} a property of the block's hash (a number of leading zeros) known as difficulty.
                 \item This is a trial and error procedure (a kind of brute-force).
                 \item The first node that finds a successful solution \st{announces} it to the network.
                 \item The rest of the nodes can \alert{easily verify} that the solution (and hence the block) is valid.
@@ -807,7 +815,7 @@
                 Software wallets & Electrum \\
                 Hardware wallets & Ledger \\
                 Paper wallets  & \href{https://walletgenerator.net}{walletgenerator.net} \\
-                Brain wallets  & \href{https://brainwallet.io/}{brainwallet.io} \\
+                Brain wallets  & \href{https://keybase.io/warp}{keybase.io/warp} \\
             \end{tabular}
             \end{block}
             
@@ -832,17 +840,11 @@
     \end{frame}
     %--------------------------------End-----------------------------------
 
-    
 
     %--------------------------------Frame---------------------------------
     \begin{frame}
         \frametitle{Key notes}
 
-          % Blockchain: Don't need to trust anyone but yourself.
-        % Drawback? Key lost = irrecoverable funds
-        % Dice Base6 generator throwing 99 times
-        % Change address
-        
         \begin{itemize}\itemsep=2.5ex
             \item Address \textbf{reuse} is \alert{discouraged} as compromises \alert{privacy} and security\\ $\Rightarrow$ HD wallets allow zero-address reuse.
             \item The user does not need to \alert{trust anyone} but himself to safely store his funds.
@@ -852,7 +854,33 @@
         
     \end{frame}
     %--------------------------------End-----------------------------------
-    
+
+
+%--------------------------------Frame---------------------------------
+\begin{frame}
+    \frametitle{Bitkey}
+
+    \vspace{1ex}
+    Bitkey is a \st{Linux live} distribution that includes a set of tools and wallets for some of the most popular cryptocurrencies.
+
+    It can run in 2 modes:
+
+    \begin{itemize}
+        \item Hot online: Interact with the Blockchain from a secure environment.
+        \item Cold offline: This is the most secure way of operating as it starts as an \st{air-gapped} system where private key is \alert{never} exposed.
+    \end{itemize}
+
+    As a side project has not received updates in a while, but a recent fork provided by @estevaocm on \href{https://github.com/estevaocm/bitkey}{GitHub} includes many interesting tools such as:
+
+    \begin{itemize}
+        \item QR-code scanning through webcam :)  -- A very convenient way to import and export TX and addresses.
+        \item Support for several \st{other} cryptocurrency \st{wallets} other than Bitcoin (Ethereum, Litecoin,\ldots) ---more are being constantly added.
+    \end{itemize}
+
+
+\end{frame}
+%--------------------------------End-----------------------------------
+
 
     \section{Why is it revolutionary?}
     \subsection{The future will be decentralized}
