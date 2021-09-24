@@ -1,6 +1,15 @@
+## vim
+*.swp
+
+## VSCode
+.vscode/
+
 ## IntelliJ IDEA
-.idea
+.idea/
 *.iml
+
+## MacOs
+.DS_Store
 
 # output pdf
 src/main.pdf
