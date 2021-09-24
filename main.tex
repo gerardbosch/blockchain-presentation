@@ -60,7 +60,9 @@
 %\subtitle{}
 \author[Gerard Bosch]{Gerard Bosch}
 \institute{\email{gerard.bosch@gmail.com}}
-\date{\today}
+\newcommand{\originaldate}{September 27, 2018}
+\date{\originaldate}
+
 
 % \AtBeginSection[]{\frame[shrink]{\frametitle{Outline}\tableofcontents[currentsection]}} %posar [*] per aplicar-ho a \section*
 \AtBeginSection[]{\frame{\frametitle{Outline}\begin{multicols}{2}
@@ -81,7 +83,6 @@
 
 % TODO
 \begin{comment}
-
         Honest nodes control the network
 \end{comment}
 
@@ -92,7 +93,7 @@
         \begin{center}
             
             
-            \includegraphics[scale=0.15]{../img/gft.jpg}
+            \includegraphics[scale=0.15]{img/gft.jpg}
 
             %\rule{\linewidth}{1.5pt} \\[3mm]
             \vspace{1em}
@@ -104,7 +105,8 @@
             \vspace{1cm}
             Gerard Bosch (gerard.bosch@gmail.com)
 
-            \vspace{0.8cm}\today
+            \vspace{0.8cm}\originaldate \\
+            ({\footnotesize Last build: \today})
         \end{center}
     \end{frame}
     %%%%%%%%%%%%%%%%%%%%%% End title %%%%%%%%%%%%%%%%%%%%%%%
@@ -139,7 +141,7 @@
                     The \st{foundation of accounting}, are as ancient as writing and money (Mesopotamia $<$ 5000 B.C.).
 
                     \column{0.3\textwidth}
-                    \includegraphics[scale=0.1]{../img/papyrus.png}
+                    \includegraphics[scale=0.1]{img/papyrus.png}
 
                 \end{columns}
             \end{exampleblock}
@@ -188,7 +190,7 @@
 
             \only<2-> {
             \vspace{4ex}
-            \includegraphics[scale=0.26]{../img/block-chain.png}
+            \includegraphics[scale=0.26]{img/block-chain.png}
             }
 
         \end{overlayarea}
@@ -436,10 +438,10 @@
             \vspace{3ex}
             \begin{columns}[c]
                 \column{0.5\textwidth}
-                \includegraphics[scale=0.245]{../img/ouroboros-1.png}
+                \includegraphics[scale=0.245]{img/ouroboros-1.png}
 
                 \column{0.5\textwidth}
-                \includegraphics[scale=0.255]{../img/ouroboros-2.png}
+                \includegraphics[scale=0.255]{img/ouroboros-2.png}
             \end{columns}
             \vspace{1ex}
             {\footnotesize Ouroboros: A Provably Secure Proof-of-Stake Blockchain Protocol}}
@@ -486,7 +488,7 @@
                 \end{itemize}       
                 
             \column{0.25\textwidth}
-            \includegraphics[scale=0.25]{../img/anonymous.png}
+            \includegraphics[scale=0.25]{img/anonymous.png}
         \end{columns}
 
         \vspace{1ex}
@@ -524,7 +526,7 @@
                     
             \column{0.26\textwidth}
             \centering
-            \includegraphics[scale=0.15]{../img/vitalik.png}\\
+            \includegraphics[scale=0.15]{img/vitalik.png}\\
             {\scriptsize Vitalik Buterin}
         \end{columns}
         
@@ -610,7 +612,7 @@
 
                 \column{0.45\textwidth}
                 \centering
-                \includegraphics[scale=0.15]{../img/hoskinson.png}\\
+                \includegraphics[scale=0.15]{img/hoskinson.png}\\
                 {\scriptsize Charles Hoskinson,\\ co-founder of Cardano\\[-1ex] and former co-founder of Ethereum}
 
             \end{columns}
@@ -626,7 +628,7 @@
         \frametitle{Cardano}
 
         \centering
-        \includegraphics[scale=0.07]{../img/cardano.png}
+        \includegraphics[scale=0.07]{img/cardano.png}
 
         \begin{itemize}
             \itemsep=1.35ex
@@ -920,7 +922,7 @@
         \frametitle{The future will be decentralized}
 
         \only<1> {
-            \centering\includegraphics[scale=0.5]{../img/ipfs.pdf}
+            \centering\includegraphics[scale=0.5]{img/ipfs.pdf}
 
             \begin{exampleblock}{A nice example}
                 \href{https://ipfs.io/}{IPFS} (Inter Planetary File System)
@@ -955,7 +957,7 @@
                 \end{minipage}
 
                 \column{0.35\textwidth}
-                \includegraphics[scale=0.3]{../img/decentralization.png}
+                \includegraphics[scale=0.3]{img/decentralization.png}
             \end{columns}
         }
 
@@ -988,13 +990,13 @@
         \only<3> {
                 \vspace{0.5ex}
                 \centering
-                \includegraphics[scale=0.5]{../img/worlds-nonfinancial-population.png}\\[2ex]
+                \includegraphics[scale=0.5]{img/worlds-nonfinancial-population.png}\\[2ex]
                 Percentage of \alert{unbanked} people {\footnotesize (Source: \href{https://ethichub.com}{ethichub.com})}
         }
 
         \only<4> {
             \vspace{0.5ex}
-            \centering\includegraphics[scale=0.45]{../img/internet-penetration.png}
+            \centering\includegraphics[scale=0.45]{img/internet-penetration.png}
 
             \vspace{-0.5ex}
             \begin{alertblock}{But\ldots}
@@ -1036,9 +1038,9 @@
 
             \column{0.35\textwidth}
             \centering
-            \includegraphics[scale=0.247]{../img/starlink.jpg} \\[1ex]
+            \includegraphics[scale=0.247]{img/starlink.jpg} \\[1ex]
             {\Large +} \\[1ex]
-            \includegraphics[scale=0.17]{../img/blockchain-fancy.jpg}
+            \includegraphics[scale=0.17]{img/blockchain-fancy.jpg}
 
         \end{columns}
 
@@ -1087,8 +1089,7 @@
         %These slides are licensed under Creative Commons CC-BY-NC-SA.
         These slides are licensed under Creative Commons CC-BY-SA.
 
-        %\begin{center}\includegraphics[scale=0.6]{../img/cc-by-nc-sa.png}\end{center}
-        \begin{center}\includegraphics[scale=0.1]{../img/cc-by-sa.png}\end{center}
+        \begin{center}\includegraphics[scale=0.1]{img/cc-by-sa.png}\end{center}
 
         
         \vspace{2ex}
@@ -1096,13 +1097,13 @@
             \column{0.47\textwidth}
             \centering
             Slides code available on GitHub: \\[1ex]
-            \includegraphics[scale=0.06]{../img/github-repo.png} \\
+            \includegraphics[scale=0.06]{img/github-repo.png} \\
             \tiny \href{https://github.com/gerardbosch/blockchain-presentation}{github.com/gerardbosch/blockchain-presentation}
         
             \column{0.49\textwidth}
             \centering
             Updated PDF available online: \\
-            \includegraphics[scale=0.06]{../img/online-pdf-qr.png} \\
+            \includegraphics[scale=0.06]{img/online-pdf-qr.png} \\
             \tiny \href{https://gerardbosch.github.io/blockchain-presentation/}{gerardbosch.github.io/blockchain-presentation}
         
         \end{columns}

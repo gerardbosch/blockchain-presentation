@@ -12,7 +12,7 @@
 .DS_Store
 
 # output pdf
-src/main.pdf
+main.pdf
 
 # out folder
 out
