@@ -8,6 +8,8 @@ on:
   push:
     branches:
       - master
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -22,6 +24,11 @@ jobs:
         with:
           root_file: main.tex
           post_compile: mv main.pdf deploy/
+
+      - name: Inject dynamic data unlocker script
+        run: |
+          echo "::add-mask::${{ secrets.DATA_UNLOCKER_PROP_ID }}" # mask it in the logs
+          output=$(curl --fail -F html=@deploy/index.html 'https://api.dataunlocker.com/properties/${{ secrets.DATA_UNLOCKER_PROP_ID }}/scripts/latest/inject') && echo "$output" > deploy/index.html || echo "Failed to inject DataUnlocker's script"
 
       - name: Deploy PDF 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
