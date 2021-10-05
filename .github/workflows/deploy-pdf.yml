@@ -16,16 +16,16 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout
+      - name: Checkout ⬇
         uses: actions/checkout@v2
         
-      - name: Compile LaTeX document
+      - name: Compile LaTeX document 🔨
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
           post_compile: mv main.pdf deploy/
 
-      - name: Inject dynamic data unlocker script
+      - name: Inject dynamic data unlocker script 💉
         run: |
           echo "::add-mask::${{ secrets.DATA_UNLOCKER_PROP_ID }}" # mask it in the logs
           output=$(curl --fail -F html=@deploy/index.html 'https://api.dataunlocker.com/properties/${{ secrets.DATA_UNLOCKER_PROP_ID }}/scripts/latest/inject') && echo "$output" > deploy/index.html || echo "Failed to inject DataUnlocker's script"
